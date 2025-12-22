@@ -30,25 +30,11 @@ function ItemCard({ item }) {
     >
       <h3 style={{ marginTop: 0 }}>{item.course}</h3>
 
-      <p style={{ margin: "6px 0" }}>
-        <strong>Étudiant :</strong> {item.student.firstname} {item.student.lastname}
-      </p>
-
-      <p style={{ margin: "6px 0" }}>
-        <strong>ID Étudiant :</strong> {item.student.id}
-      </p>
-
-      <p style={{ margin: "6px 0" }}>
-        <strong>Date :</strong> {item.date}
-      </p>
-
-      <p style={{ margin: "6px 0" }}>
-        <strong>Note :</strong> {item.grade}
-      </p>
-
-      <p style={{ margin: "6px 0", opacity: 0.7 }}>
-        unique_id : {item.unique_id}
-      </p>
+      <p><strong>Étudiant :</strong> {item.student.firstname} {item.student.lastname}</p>
+      <p><strong>ID Étudiant :</strong> {item.student.id}</p>
+      <p><strong>Date :</strong> {item.date}</p>
+      <p><strong>Note :</strong> {item.grade}</p>
+      <p style={{ opacity: 0.7 }}>unique_id : {item.unique_id}</p>
     </div>
   );
 }
@@ -62,9 +48,45 @@ export default function App() {
 
   return (
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+
+      {/* ✅ NAVBAR EN HAUT */}
+      <nav
+        style={{
+          position: "sticky",
+          top: 0,
+          zIndex: 1000,
+          width: "100%",
+          display: "flex",
+          justifyContent: "flex-start",
+          gap: "12px",
+          padding: "12px 20px",
+          boxSizing: "border-box",
+          background: "rgba(0,0,0,0.35)",
+          backdropFilter: "blur(6px)",
+        }}
+      >
+        {["Notes", "Etudiants", "Matières", "A propos"].map((item) => (
+          <button
+            key={item}
+            onClick={() => alert(item)}
+            style={{
+              padding: "8px 12px",
+              borderRadius: "10px",
+              border: "1px solid rgba(255,255,255,0.2)",
+              background: "transparent",
+              color: "white",
+              cursor: "pointer",
+            }}
+          >
+            {item}
+          </button>
+        ))}
+      </nav>
+
+      {/* HEADER */}
       <Header />
 
-      {/* ✅ Ici on garde ton MainContent et on ajoute la partie data.json */}
+      {/* CONTENU PRINCIPAL */}
       <div style={{ flex: 1 }}>
         <MainContent />
 
@@ -85,6 +107,7 @@ export default function App() {
         </div>
       </div>
 
+      {/* FOOTER */}
       <Footer />
     </div>
   );
