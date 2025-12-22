@@ -4,6 +4,7 @@ import './App.css'
 
 import Header from './components/Header'
 import MainContent from './components/MainContent'
+import Footer from './components/Footer'
 
 
 function Content() {
@@ -28,13 +29,9 @@ function App() {
 
       <Header />
       <MainContent />
+      <Footer />
 
 
-      <h1>MBDS</h1>
-
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
